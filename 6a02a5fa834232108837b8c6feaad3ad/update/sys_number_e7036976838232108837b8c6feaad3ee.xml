@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_number">
+    <sys_number action="INSERT_OR_UPDATE">
+        <category display_value="" name="x_1098266_pci_ac_0_example_table">x_1098266_pci_ac_0_example_table</category>
+        <maximum_digits>7</maximum_digits>
+        <number>1000</number>
+        <prefix>EXA</prefix>
+        <sys_class_name>sys_number</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 23:22:47</sys_created_on>
+        <sys_id>e7036976838232108837b8c6feaad3ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>EXA</sys_name>
+        <sys_package display_value="PCI Accelerator" source="x_1098266_pci_ac_0">6a02a5fa834232108837b8c6feaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PCI Accelerator">6a02a5fa834232108837b8c6feaad3ad</sys_scope>
+        <sys_update_name>sys_number_e7036976838232108837b8c6feaad3ee</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 23:22:47</sys_updated_on>
+    </sys_number>
+</record_update>
