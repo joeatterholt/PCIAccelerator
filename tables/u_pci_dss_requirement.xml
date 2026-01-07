@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sys_db_object action="INSERT_OR_UPDATE" name="u_pci_dss_requirement">
+    <access_control_entries/>
+    <action_insert>true</action_insert>
+    <action_query>true</action_query>
+    <action_update>true</action_update>
+    <action_delete>true</action_delete>
+    <audit>false</audit>
+    <can_edit_permission>true</can_edit_permission>
+    <can_read_permission>true</can_read_permission>
+    <can_write_permission>true</can_write_permission>
+    <category>custom</category>
+    <client_customizable>true</client_customizable>
+    <create_access_control_rule>true</create_access_control_rule>
+    <create_roles/>
+    <create_table>true</create_table>
+    <default_actions>true</default_actions>
+    <default_indexes>true</default_indexes>
+    <default_views>true</default_views>
+    <display_name>PCI DSS Requirement</display_name>
+    <extendable>true</extendable>
+    <extends>task</extends>
+    <extension_model/>
+    <file_name_prefix/>
+    <label>PCI DSS Requirement</label>
+    <live_feed>false</live_feed>
+    <name>u_pci_dss_requirement</name>
+    <name_column/>
+    <order_column/>
+    <read_access_control_rule>true</read_access_control_rule>
+    <read_roles/>
+    <scoped>true</scoped>
+    <sys_class_name>sys_db_object</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2024-01-01 00:00:00</sys_created_on>
+    <sys_id>u_pci_dss_requirement</sys_id>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>u_pci_dss_requirement</sys_name>
+    <sys_package display_value="PCI Accelerator" source="x_123456_pci_accel">[package_sys_id]</sys_package>
+    <sys_policy/>
+    <sys_scope display_value="PCI Accelerator" source="x_123456_pci_accel">[package_sys_id]</sys_scope>
+    <sys_update_name>sys_db_object_u_pci_dss_requirement</sys_update_name>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2024-01-01 00:00:00</sys_updated_on>
+    <table_name>u_pci_dss_requirement</table_name>
+    <use_dynamic_name>false</use_dynamic_name>
+    <write_access_control_rule>true</write_access_control_rule>
+    <write_roles/>
+</sys_db_object>
+

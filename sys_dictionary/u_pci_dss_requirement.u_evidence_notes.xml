@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sys_dictionary action="INSERT_OR_UPDATE" name="u_pci_dss_requirement.u_evidence_notes">
+    <active>true</active>
+    <audit>false</audit>
+    <calculation/>
+    <choice/>
+    <choice_table/>
+    <column_label>Evidence Notes</column_label>
+    <comments/>
+    <create_roles/>
+    <default_value/>
+    <dependent_on_field/>
+    <dependent_on_field_display/>
+    <display>true</display>
+    <dynamic_creation>false</dynamic_creation>
+    <dynamic_creation_script/>
+    <dynamic_default_value/>
+    <dynamic_ref_qual/>
+    <element>u_evidence_notes</element>
+    <element_reference>false</element_reference>
+    <foreign_database/>
+    <foreign_key>false</foreign_key>
+    <function_definition/>
+    <internal_type>journal</internal_type>
+    <max_length>4000</max_length>
+    <read_roles/>
+    <reference_cascade_rule/>
+    <reference_floats>false</reference_floats>
+    <reference_key/>
+    <reference_qual/>
+    <reference_qual_condition/>
+    <reference_type/>
+    <reference_table>sys_journal_field</reference_table>
+    <sizeclass>1</sizeclass>
+    <spell_check>false</spell_check>
+    <staged>false</staged>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2024-01-01 00:00:00</sys_created_on>
+    <sys_id>u_pci_dss_requirement.u_evidence_notes</sys_id>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>u_evidence_notes</sys_name>
+    <sys_package display_value="PCI Accelerator" source="x_123456_pci_accel">[package_sys_id]</sys_package>
+    <sys_policy/>
+    <sys_scope display_value="PCI Accelerator" source="x_123456_pci_accel">[package_sys_id]</sys_scope>
+    <sys_update_name>sys_dictionary_u_pci_dss_requirement.u_evidence_notes</sys_update_name>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2024-01-01 00:00:00</sys_updated_on>
+    <table_reference>false</table_reference>
+    <text_index>false</text_index>
+    <use_dynamic_default>false</use_dynamic_default>
+    <use_reference_qualifier>always</use_reference_qualifier>
+    <virtual>false</virtual>
+    <widget>journal-input</widget>
+    <write_roles/>
+    <mandatory>false</mandatory>
+    <table>u_pci_dss_requirement</table>
+</sys_dictionary>
+

@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sys_script_fix action="INSERT_OR_UPDATE" name="Populate PCI DSS v4.0 Requirements">
+    <active>true</active>
+    <condition/>
+    <description>Populates the u_pci_dss_requirement table with the main 12 requirements and key sub-requirements from PCI DSS v4.0 with accurate titles and descriptions.</description>
+    <fix_script><![CDATA[// Fix Script: Populate PCI DSS v4.0 Requirements
+(function executeFixScript() {
+    var requirements = [
+        // Requirement 1: Install and maintain network security controls
+        {
+            u_req_id: '1',
+            u_title: 'Install and Maintain Network Security Controls',
+            u_description: 'Network security controls (NSCs) are installed and maintained to protect cardholder data. Network security controls are implemented to manage and control all network connections, including connections to untrusted networks.',
+            u_section: 1,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '1.1',
+            u_title: 'Network security controls are defined and documented',
+            u_description: 'Network security controls are defined and documented. All network security controls are identified, documented, and implemented to protect the cardholder data environment.',
+            u_section: 1,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '1.2',
+            u_title: 'Network security controls are configured and maintained',
+            u_description: 'Network security controls are configured and maintained in accordance with the documented configuration standards. All network security controls are configured and maintained to ensure they continue to protect the cardholder data environment.',
+            u_section: 1,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '1.2.1',
+            u_title: 'Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment',
+            u_description: 'Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic. All network traffic is restricted to only that which is necessary for the cardholder data environment.',
+            u_section: 1,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '1.2.2',
+            u_title: 'Secure and synchronize router configuration files',
+            u_description: 'Secure and synchronize router configuration files. Router configuration files are secured and synchronized to prevent unauthorized changes.',
+            u_section: 1,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '1.3',
+            u_title: 'Network access to and from the cardholder data environment is restricted',
+            u_description: 'Network access to and from the cardholder data environment is restricted. Access to the cardholder data environment is restricted to only authorized personnel and systems.',
+            u_section: 1,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '1.4',
+            u_title: 'Network connections between trusted and untrusted networks are controlled',
+            u_description: 'Network connections between trusted and untrusted networks are controlled. All network connections between trusted and untrusted networks are controlled and monitored.',
+            u_section: 1,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 2: Apply secure configurations to all system components
+        {
+            u_req_id: '2',
+            u_title: 'Apply Secure Configurations to All System Components',
+            u_description: 'System components are configured securely to protect cardholder data. Secure configuration standards are developed, implemented, and maintained to protect system components.',
+            u_section: 2,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '2.1',
+            u_title: 'Vendor default accounts and passwords are changed',
+            u_description: 'Vendor default accounts and passwords are changed or removed before installing a system component on the network. All vendor default accounts and passwords are changed or removed to prevent unauthorized access.',
+            u_section: 2,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '2.2',
+            u_title: 'Vendor default settings are managed',
+            u_description: 'Vendor default settings are managed. All vendor default settings are reviewed and changed as necessary to ensure secure configuration.',
+            u_section: 2,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '2.2.1',
+            u_title: 'Vendor default settings are changed',
+            u_description: 'Vendor default settings are changed. All vendor default settings that could impact security are changed.',
+            u_section: 2,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '2.2.2',
+            u_title: 'Vendor default settings are documented',
+            u_description: 'Vendor default settings are documented. All vendor default settings are documented to ensure proper configuration management.',
+            u_section: 2,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '2.3',
+            u_title: 'System components are configured securely',
+            u_description: 'System components are configured securely. All system components are configured in accordance with secure configuration standards.',
+            u_section: 2,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 3: Protect stored account data
+        {
+            u_req_id: '3',
+            u_title: 'Protect Stored Account Data',
+            u_description: 'Account data stored by the entity is protected. Sensitive authentication data is not stored after authorization, and account data is protected using strong cryptography.',
+            u_section: 3,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '3.1',
+            u_title: 'Sensitive authentication data is not stored after authorization',
+            u_description: 'Sensitive authentication data is not stored after authorization, even if encrypted. Sensitive authentication data includes full track data, card verification codes, and PINs.',
+            u_section: 3,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '3.2',
+            u_title: 'Sensitive authentication data is not stored',
+            u_description: 'Sensitive authentication data is not stored. Full track data, card verification codes, and PINs are not stored under any circumstances.',
+            u_section: 3,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '3.3',
+            u_title: 'Sensitive authentication data is rendered unrecoverable',
+            u_description: 'Sensitive authentication data is rendered unrecoverable upon completion of the authorization process. Any sensitive authentication data that is stored is rendered unrecoverable.',
+            u_section: 3,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '3.4',
+            u_title: 'Primary account number (PAN) is rendered unreadable',
+            u_description: 'Primary account number (PAN) is rendered unreadable anywhere it is stored. PANs are rendered unreadable using strong cryptography, truncation, hashing, or other methods.',
+            u_section: 3,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '3.4.1',
+            u_title: 'PAN is rendered unreadable using strong cryptography',
+            u_description: 'PAN is rendered unreadable using strong cryptography. Strong cryptography is used to render PANs unreadable when stored.',
+            u_section: 3,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '3.5',
+            u_title: 'Documented cryptographic architecture is implemented',
+            u_description: 'Documented cryptographic architecture is implemented. A documented cryptographic architecture is implemented to protect stored account data.',
+            u_section: 3,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 4: Protect cardholder data with strong cryptography during transmission
+        {
+            u_req_id: '4',
+            u_title: 'Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks',
+            u_description: 'Cardholder data is protected with strong cryptography during transmission over open, public networks. Strong cryptography is used to protect cardholder data during transmission.',
+            u_section: 4,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '4.1',
+            u_title: 'Strong cryptography is used to safeguard cardholder data during transmission',
+            u_description: 'Strong cryptography is used to safeguard cardholder data during transmission over open, public networks. Strong cryptography is implemented to protect cardholder data during transmission.',
+            u_section: 4,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '4.2',
+            u_title: 'Cardholder data is not sent via end-user messaging technologies',
+            u_description: 'Cardholder data is not sent via end-user messaging technologies. End-user messaging technologies such as email, instant messaging, and chat are not used to transmit cardholder data.',
+            u_section: 4,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 5: Protect all systems and networks from malicious software
+        {
+            u_req_id: '5',
+            u_title: 'Protect All Systems and Networks from Malicious Software',
+            u_description: 'All systems and networks are protected from malicious software. Anti-malware solutions are deployed and maintained to protect all systems and networks.',
+            u_section: 5,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '5.1',
+            u_title: 'Anti-malware solutions are deployed on all system components',
+            u_description: 'Anti-malware solutions are deployed on all system components. Anti-malware solutions are installed and maintained on all system components.',
+            u_section: 5,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '5.2',
+            u_title: 'Anti-malware solutions are kept current',
+            u_description: 'Anti-malware solutions are kept current. Anti-malware solutions are updated regularly to ensure they can detect and prevent the latest threats.',
+            u_section: 5,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '5.3',
+            u_title: 'Anti-malware solutions perform periodic scans',
+            u_description: 'Anti-malware solutions perform periodic scans. Anti-malware solutions are configured to perform periodic scans of all system components.',
+            u_section: 5,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '5.4',
+            u_title: 'Anti-malware solutions generate audit logs',
+            u_description: 'Anti-malware solutions generate audit logs. Anti-malware solutions are configured to generate audit logs of all activities.',
+            u_section: 5,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 6: Develop and maintain secure systems and software
+        {
+            u_req_id: '6',
+            u_title: 'Develop and Maintain Secure Systems and Software',
+            u_description: 'Systems and software are developed and maintained securely. Secure development practices are implemented to protect systems and software from vulnerabilities.',
+            u_section: 6,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '6.1',
+            u_title: 'Security vulnerabilities are identified and addressed',
+            u_description: 'Security vulnerabilities are identified and addressed. Security vulnerabilities are identified through vulnerability assessments and addressed promptly.',
+            u_section: 6,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '6.2',
+            u_title: 'Software and system components are developed securely',
+            u_description: 'Software and system components are developed securely. Secure development practices are implemented throughout the software development lifecycle.',
+            u_section: 6,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '6.2.1',
+            u_title: 'Secure coding techniques are used',
+            u_description: 'Secure coding techniques are used. Secure coding techniques are implemented to prevent common vulnerabilities.',
+            u_section: 6,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '6.2.2',
+            u_title: 'Software development processes are defined and documented',
+            u_description: 'Software development processes are defined and documented. Secure software development processes are defined and documented.',
+            u_section: 6,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '6.3',
+            u_title: 'Public-facing web applications are protected against attacks',
+            u_description: 'Public-facing web applications are protected against attacks. Public-facing web applications are protected against common attacks such as SQL injection and cross-site scripting.',
+            u_section: 6,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '6.4',
+            u_title: 'Changes to system components are managed securely',
+            u_description: 'Changes to system components are managed securely. Change management processes are implemented to ensure changes are made securely.',
+            u_section: 6,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '6.5',
+            u_title: 'Software components are managed securely',
+            u_description: 'Software components are managed securely. Software components are managed to ensure they are secure and up to date.',
+            u_section: 6,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 7: Restrict access to system components and cardholder data by business need to know
+        {
+            u_req_id: '7',
+            u_title: 'Restrict Access to System Components and Cardholder Data by Business Need to Know',
+            u_description: 'Access to system components and cardholder data is restricted to only those individuals whose jobs require such access. Access is granted on a need-to-know basis.',
+            u_section: 7,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '7.1',
+            u_title: 'Access to system components and cardholder data is restricted',
+            u_description: 'Access to system components and cardholder data is restricted to only those individuals whose jobs require such access. Access controls are implemented to restrict access.',
+            u_section: 7,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '7.2',
+            u_title: 'Access rights are assigned based on job function',
+            u_description: 'Access rights are assigned based on job function. Access rights are assigned based on job function and business need.',
+            u_section: 7,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '7.2.1',
+            u_title: 'Access rights are defined and documented',
+            u_description: 'Access rights are defined and documented. Access rights are defined and documented for all system components and cardholder data.',
+            u_section: 7,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '7.2.2',
+            u_title: 'Access rights are assigned based on job function',
+            u_description: 'Access rights are assigned based on job function. Access rights are assigned based on job function and business need.',
+            u_section: 7,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '7.3',
+            u_title: 'Access rights are reviewed and updated',
+            u_description: 'Access rights are reviewed and updated. Access rights are reviewed regularly and updated as needed.',
+            u_section: 7,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 8: Identify users and authenticate access to system components
+        {
+            u_req_id: '8',
+            u_title: 'Identify Users and Authenticate Access to System Components',
+            u_description: 'Users are identified and authenticated before access to system components is allowed. Strong authentication mechanisms are implemented to identify and authenticate users.',
+            u_section: 8,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '8.1',
+            u_title: 'Users are identified and authenticated',
+            u_description: 'Users are identified and authenticated before access to system components is allowed. Strong authentication mechanisms are implemented to identify and authenticate users.',
+            u_section: 8,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '8.2',
+            u_title: 'Strong authentication is implemented',
+            u_description: 'Strong authentication is implemented. Strong authentication mechanisms such as multi-factor authentication are implemented.',
+            u_section: 8,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '8.2.1',
+            u_title: 'Multi-factor authentication is implemented',
+            u_description: 'Multi-factor authentication is implemented. Multi-factor authentication is implemented for all remote access and administrative access.',
+            u_section: 8,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '8.3',
+            u_title: 'Passwords are managed securely',
+            u_description: 'Passwords are managed securely. Strong password policies are implemented and enforced.',
+            u_section: 8,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '8.3.1',
+            u_title: 'Strong password policies are implemented',
+            u_description: 'Strong password policies are implemented. Password policies require strong passwords that meet complexity requirements.',
+            u_section: 8,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '8.3.2',
+            u_title: 'Passwords are changed periodically',
+            u_description: 'Passwords are changed periodically. Passwords are changed at regular intervals to maintain security.',
+            u_section: 8,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '8.4',
+            u_title: 'User accounts are managed securely',
+            u_description: 'User accounts are managed securely. User accounts are created, modified, and deleted in accordance with security policies.',
+            u_section: 8,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 9: Restrict physical access to cardholder data
+        {
+            u_req_id: '9',
+            u_title: 'Restrict Physical Access to Cardholder Data',
+            u_description: 'Physical access to cardholder data is restricted. Physical access controls are implemented to restrict access to cardholder data.',
+            u_section: 9,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '9.1',
+            u_title: 'Physical access to cardholder data is restricted',
+            u_description: 'Physical access to cardholder data is restricted. Physical access controls are implemented to restrict access to areas where cardholder data is stored or processed.',
+            u_section: 9,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '9.2',
+            u_title: 'Physical access controls are implemented',
+            u_description: 'Physical access controls are implemented. Physical access controls such as locks, badges, and surveillance are implemented.',
+            u_section: 9,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '9.2.1',
+            u_title: 'Physical access is controlled with locks and badges',
+            u_description: 'Physical access is controlled with locks and badges. Physical access is controlled using locks, badges, and other access control mechanisms.',
+            u_section: 9,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '9.2.2',
+            u_title: 'Physical access is monitored',
+            u_description: 'Physical access is monitored. Physical access is monitored using surveillance and access logs.',
+            u_section: 9,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '9.3',
+            u_title: 'Media containing cardholder data is protected',
+            u_description: 'Media containing cardholder data is protected. Media containing cardholder data is protected from unauthorized access.',
+            u_section: 9,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '9.4',
+            u_title: 'Media containing cardholder data is destroyed securely',
+            u_description: 'Media containing cardholder data is destroyed securely. Media containing cardholder data is destroyed securely when no longer needed.',
+            u_section: 9,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 10: Log and monitor all access to system components and cardholder data
+        {
+            u_req_id: '10',
+            u_title: 'Log and Monitor All Access to System Components and Cardholder Data',
+            u_description: 'All access to system components and cardholder data is logged and monitored. Logging and monitoring mechanisms are implemented to track all access.',
+            u_section: 10,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.1',
+            u_title: 'Audit logs are implemented',
+            u_description: 'Audit logs are implemented. Audit logs are implemented to track all access to system components and cardholder data.',
+            u_section: 10,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.2',
+            u_title: 'Audit logs capture required events',
+            u_description: 'Audit logs capture required events. Audit logs capture all required events including access to cardholder data, administrative actions, and security events.',
+            u_section: 10,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.2.1',
+            u_title: 'Audit logs capture access to cardholder data',
+            u_description: 'Audit logs capture access to cardholder data. All access to cardholder data is logged and monitored.',
+            u_section: 10,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.2.2',
+            u_title: 'Audit logs capture administrative actions',
+            u_description: 'Audit logs capture administrative actions. All administrative actions are logged and monitored.',
+            u_section: 10,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.3',
+            u_title: 'Audit logs are protected',
+            u_description: 'Audit logs are protected. Audit logs are protected from unauthorized access, modification, or deletion.',
+            u_section: 10,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.4',
+            u_title: 'Audit logs are reviewed regularly',
+            u_description: 'Audit logs are reviewed regularly. Audit logs are reviewed regularly to identify suspicious activity and security events.',
+            u_section: 10,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.5',
+            u_title: 'Audit logs are retained',
+            u_description: 'Audit logs are retained. Audit logs are retained for at least one year, with at least three months of logs immediately available for analysis.',
+            u_section: 10,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.6',
+            u_title: 'Time synchronization is implemented',
+            u_description: 'Time synchronization is implemented. Time synchronization is implemented to ensure accurate timestamps in audit logs.',
+            u_section: 10,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '10.7',
+            u_title: 'Failures of critical security control systems are responded to',
+            u_description: 'Failures of critical security control systems are responded to. Failures of critical security control systems are detected and responded to promptly.',
+            u_section: 10,
+            u_control_type: 'Operational',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 11: Test security of systems and networks regularly
+        {
+            u_req_id: '11',
+            u_title: 'Test Security of Systems and Networks Regularly',
+            u_description: 'The security of systems and networks is tested regularly. Security testing is performed regularly to identify vulnerabilities and ensure security controls are effective.',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '11.1',
+            u_title: 'Network security controls are tested',
+            u_description: 'Network security controls are tested. Network security controls are tested regularly to ensure they are functioning properly.',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '11.2',
+            u_title: 'Vulnerability scans are performed',
+            u_description: 'Vulnerability scans are performed. Vulnerability scans are performed regularly to identify security vulnerabilities.',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '11.2.1',
+            u_title: 'Internal vulnerability scans are performed',
+            u_description: 'Internal vulnerability scans are performed. Internal vulnerability scans are performed quarterly by qualified personnel.',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '11.2.2',
+            u_title: 'External vulnerability scans are performed',
+            u_description: 'External vulnerability scans are performed. External vulnerability scans are performed quarterly by an Approved Scanning Vendor (ASV).',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '11.3',
+            u_title: 'Penetration testing is performed',
+            u_description: 'Penetration testing is performed. Penetration testing is performed at least annually and after any significant changes to the environment.',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '11.4',
+            u_title: 'Intrusion detection and prevention systems are deployed',
+            u_description: 'Intrusion detection and prevention systems are deployed. Intrusion detection and prevention systems are deployed to detect and prevent unauthorized access.',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '11.5',
+            u_title: 'File integrity monitoring is implemented',
+            u_description: 'File integrity monitoring is implemented. File integrity monitoring is implemented to detect unauthorized changes to critical system files.',
+            u_section: 11,
+            u_control_type: 'Technical',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        
+        // Requirement 12: Support information security with organizational policies and programs
+        {
+            u_req_id: '12',
+            u_title: 'Support Information Security with Organizational Policies and Programs',
+            u_description: 'Information security is supported by organizational policies and programs. Information security policies and programs are implemented to support the security of cardholder data.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.1',
+            u_title: 'Information security policy is established and maintained',
+            u_description: 'Information security policy is established and maintained. An information security policy is established, documented, and maintained.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.2',
+            u_title: 'Information security policy is reviewed and updated',
+            u_description: 'Information security policy is reviewed and updated. The information security policy is reviewed at least annually and updated as needed.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.3',
+            u_title: 'Information security responsibilities are assigned',
+            u_description: 'Information security responsibilities are assigned. Information security responsibilities are assigned to specific individuals or roles.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.4',
+            u_title: 'Information security awareness program is implemented',
+            u_description: 'Information security awareness program is implemented. An information security awareness program is implemented to educate personnel about security risks.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.5',
+            u_title: 'Incident response plan is established and maintained',
+            u_description: 'Incident response plan is established and maintained. An incident response plan is established, documented, and maintained.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.6',
+            u_title: 'Incident response plan is tested',
+            u_description: 'Incident response plan is tested. The incident response plan is tested at least annually.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.7',
+            u_title: 'Business continuity and disaster recovery plans are established',
+            u_description: 'Business continuity and disaster recovery plans are established. Business continuity and disaster recovery plans are established, documented, and maintained.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.8',
+            u_title: 'Service providers are managed securely',
+            u_description: 'Service providers are managed securely. Service providers that handle cardholder data are managed to ensure they maintain PCI DSS compliance.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.9',
+            u_title: 'Service provider agreements are maintained',
+            u_description: 'Service provider agreements are maintained. Service provider agreements are maintained to ensure service providers maintain PCI DSS compliance.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        },
+        {
+            u_req_id: '12.10',
+            u_title: 'Service provider compliance is monitored',
+            u_description: 'Service provider compliance is monitored. Service provider compliance with PCI DSS is monitored regularly.',
+            u_section: 12,
+            u_control_type: 'Administrative',
+            u_applicable: true,
+            u_compliance_status: 'Not Tested'
+        }
+    ];
+
+    var inserted = 0;
+    var updated = 0;
+    var errors = 0;
+
+    requirements.forEach(function(req) {
+        try {
+            var gr = new GlideRecord('u_pci_dss_requirement');
+            gr.addQuery('u_req_id', req.u_req_id);
+            gr.query();
+            
+            if (gr.next()) {
+                // Update existing record
+                gr.u_title = req.u_title;
+                gr.u_description = req.u_description;
+                gr.u_section = req.u_section;
+                gr.u_control_type = req.u_control_type;
+                gr.u_applicable = req.u_applicable;
+                if (gr.u_compliance_status.nil()) {
+                    gr.u_compliance_status = req.u_compliance_status;
+                }
+                gr.update();
+                updated++;
+            } else {
+                // Insert new record
+                gr.initialize();
+                gr.u_req_id = req.u_req_id;
+                gr.u_title = req.u_title;
+                gr.u_description = req.u_description;
+                gr.u_section = req.u_section;
+                gr.u_control_type = req.u_control_type;
+                gr.u_applicable = req.u_applicable;
+                gr.u_compliance_status = req.u_compliance_status;
+                gr.short_description = req.u_title;
+                gr.insert();
+                inserted++;
+            }
+        } catch (e) {
+            gs.error('Error processing requirement ' + req.u_req_id + ': ' + e.toString());
+            errors++;
+        }
+    });
+
+    gs.info('PCI DSS v4.0 Requirements populated successfully. Inserted: ' + inserted + ', Updated: ' + updated + ', Errors: ' + errors);
+})();]]></fix_script>
+    <name>Populate PCI DSS v4.0 Requirements</name>
+    <order>100</order>
+    <sys_class_name>sys_script_fix</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2024-01-01 00:00:00</sys_created_on>
+    <sys_id>populate_pci_dss_v4_requirements</sys_id>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>Populate PCI DSS v4.0 Requirements</sys_name>
+    <sys_package display_value="PCI Accelerator" source="x_123456_pci_accel">[package_sys_id]</sys_package>
+    <sys_policy/>
+    <sys_scope display_value="PCI Accelerator" source="x_123456_pci_accel">[package_sys_id]</sys_scope>
+    <sys_update_name>sys_script_fix_populate_pci_dss_v4_requirements</sys_update_name>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2024-01-01 00:00:00</sys_updated_on>
+    <unloadable>false</unloadable>
+</sys_script_fix>
+
